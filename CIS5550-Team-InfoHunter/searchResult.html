@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>InfoHunter</title>
+    <!-- Add the Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add the Roboto Slab font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+
+        #search-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            z-index: 1000;
+            border-bottom: 5px solid #e0e0e0;
+            margin-bottom: 5px;
+        }
+
+        #search-container h1 {
+            font-family: 'Roboto Slab', serif; /* Fancier font */
+            font-size: 24px;
+            font-weight: bold; /* Bolder text */
+            display: inline-block;
+            margin-right: 15px;
+            margin-left: 15px; /* Add left margin */
+            vertical-align: middle;
+        }
+
+        #search {
+            width: 600px;
+            display: inline-block;
+        }
+
+        .result {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .result a {
+            color: #1a0dab;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .result a:hover {
+            text-decoration: underline;
+        }
+
+        .result p {
+            color: #444;
+            margin: 4px 0;
+        }
+
+        .url {
+            color: #006621;
+            font-size: 15px;
+        }
+
+        .favicon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: text-bottom;
+        }
+
+        #results {
+            margin-top: 120px; /* Add more margin to the results container */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="search-container" class="text-left">
+            <h1>InfoHunter</h1>
+            <form action="/search" method="get" class="form-inline d-inline">
+                <input type="text" id="search" name="q" class="form-control mr-2" placeholder="Search...">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <div id="results" class="resultsTable">
+        </div>
+    </div>
+
+    <script>
+        var maxScore = Number.POSITIVE_INFINITY;
+        var results = document.getElementById("results");
+        console.log(window.location);
+        
+        var results = document.getElementById("results");
+        console.log(window.location);
+        var query = window.location.search.substring(3);
+        console.log("query:" + query);
+        query = encodeURIComponent(query);
+        var url = `/api/search?q=${query}`;
+    
+        fetch(url)
+            .then(response => response.json())
+            .then(resultsData => {
+                console.log(resultsData);
+                const resultsDivs = resultsData.reduce((acc, data) => {
+                    acc += generateResultDiv(data);
+                    return acc;
+                }, "");
+                maxScore = resultsData.length > 0 ? resultsData[resultsData.length - 1].score : -1;
+                console.log(maxScore);
+                results.innerHTML = resultsDivs;
+            });
+
+        
+        window.onscroll = function(ev) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                var encoded = encodeURIComponent(query) + "&max=" + encodeURIComponent(maxScore) + "&limit=10";
+                var url = `/api/search?q=${encoded}` ;
+               
+                fetch(url)
+                    .then(response => response.json())
+                    .then(resultsData => {
+                        console.log(resultsData);
+                        const resultsDivs = resultsData.reduce((acc, data) => {
+                            acc += generateResultDiv(data);
+                            return acc;
+                        }, "");
+                        results.innerHTML += resultsDivs;
+                        maxScore = resultsData.length >0 ?resultsData[resultsData.length - 1].score : -1;
+                        console.log(maxScore);
+                    });
+            }
+        };
+
+
+
+        function generateResultDiv(data){
+            let faviconUrl = `https://www.google.com/s2/favicons?domain=${data.url}`;
+
+            let result = `
+                <div class="result">
+                    <a href="${data.url}">${data.title}</a>
+                    <div>
+                        <img src="${faviconUrl}" class="favicon" alt="Favicon">
+                        <a class="url" href="${data.url}">${data.url}</a>
+                    </div>
+                    <a href="/cache/${encodeURIComponent(data.url)}">cached</a>
+                    <p>${data.description !== null && data.description !== undefined ? data.description : "" }</p>
+                </div>`;
+            return result;
+        }
+
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

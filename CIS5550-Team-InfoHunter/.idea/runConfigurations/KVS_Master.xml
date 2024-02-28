@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="KVS Master" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="cis5550.kvs.Master" />
+    <module name="InfoHunter" />
+    <option name="PROGRAM_PARAMETERS" value="8000" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="cis5550.flame.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="FlameSubmit (Crawler)" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="cis5550.flame.FlameSubmit" />
+    <module name="InfoHunter" />
+    <option name="PROGRAM_PARAMETERS" value="localhost:9000 crawler.jar cis5550.jobs.Crawler https://www.bloomberg.com/ https://www.bbc.com/ https://en.wikipedia.org/wiki/Main_Page https://dmoz-odp.org/ https://www.nytimes.com/ https://www.cnn.com/ https://www.nbcnews.com/ https://www.amazon.com/ https://www.businessinsider.com/ https://www.foxnews.com/ https://www.ebay.com/ https://abcnews.go.com/ https://www.yahoo.com/ https://www.espn.com/ https://weather.com/ https://twitter.com/news/ https://www.weather.gov/ https://www.reddit.com/ https://www.worldbank.org/en/home/ https://medium.com/ https://stackoverflow.com/questions/ https://www.destructoid.com/ https://www.youtube.com/ https://www.yelp.com/ https://www.imdb.com/ https://pinterest.com/ https://tripadvisor.com/ https://wiktionary.org/ https://cambridge.org/ https://britannica.com/ https://unsplash.com/ https://github.com/w3c https://expedia.com/ https://nba.com/ https://dictionary.com/ https://microsoft.com/ https://homedepot.com/ https://craigslist.org/ https://thesaurus.com/ https://bestbuy.com/ https://www.indeed.com/jobs?q=software https://samsung.com/ https://www.tiktok.com/discover https://steampowered.com/ https://cdc.gov/ https://cnbc.com/ https://blog.google/ https://blog.roblox.com/ https://flashscore.com/ https://adobe.com/ https://www.washingtonpost.com/ https://vocabulary.com/ https://mcdonalds.com/ https://www.fandom.com/ https://www.stubhub.com/ https://playstation.com/ https://www.astronomy.com/ https://www.ssrn.com/index.cfm/en/ https://www.buzzfeed.com/ https://www.businessinsider.com/ https://www.flickr.com/ https://www.coursera.org/ https://www.udemy.com/ https://www.monster.com/ https://www.nature.com/ https://www.arxiv.org/ https://www.who.int/ https://www.wto.org/ https://www.healthline.com/ https://www.nationalgeographic.com/ https://www.economist.com/ https://www.nasa.gov/ https://www.booking.com/ https://www.twitch.tv/directory https://www.mouser.com/ https://penntoday.upenn.edu/ https://hotels.com/ https://www.w3schools.com/ https://www.tumblr.com/ https://adidas.com/ https://www.spotify.com/ https://coinmarketcap.com/ https://calculator.net/" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="cis5550.flame.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2" />
+  </configuration>
+</component>

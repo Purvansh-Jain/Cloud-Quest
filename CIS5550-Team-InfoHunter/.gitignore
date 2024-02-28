@@ -1,0 +1,7 @@
+/out/
+/worker*/**
+!worker*/id
+**/*.class
+**/*.jar
+/bin/
+**/*.pem

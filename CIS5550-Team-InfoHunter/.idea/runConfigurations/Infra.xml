@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Infra" type="CompoundRunConfigurationType">
+    <toRun name="KVS Master" type="Application" />
+    <toRun name="KVS Worker 1" type="Application" />
+    <toRun name="KVS Worker 2" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>

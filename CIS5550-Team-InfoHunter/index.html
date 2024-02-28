@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>InfoSearch</title>
+    <!-- Add the Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add the Roboto Slab font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            height: 100%;
+            margin: 0;
+        }
+
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif; /* Fancier font */
+            font-size: 24px;
+            font-weight: bold; /* Bolder text */
+            margin-bottom: 30px;
+        }
+
+        #search {
+            width: 600px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container h-100">
+        <div class="center-container">
+            <h1>InfoSearch</h1>
+            <form action="/search" method="get" class="form-inline">
+                <input type="text" id="search" name="q" class="form-control mr-2" placeholder="Search...">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
